@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localeEsGT from '@angular/common/locales/es-GT';
 import { registerLocaleData } from '@angular/common';
 import { LoginModule } from './core/pages/login/login.module';
+import { AuthGuard } from './core/pages/guard/guard.service';
 
 registerLocaleData(localeEsGT);
 @NgModule({
@@ -23,6 +24,7 @@ registerLocaleData(localeEsGT);
     BrowserAnimationsModule
   ],
   providers: [
+    AuthGuard,
     { provide: LOCALE_ID, useValue: 'es-GT' }
   ],
   bootstrap: [AppComponent],

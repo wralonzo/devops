@@ -6,6 +6,7 @@ import { NumerosComponent } from './core/pages/numeros/numeros.component';
 import { NoComunesComponent } from './core/pages/no-comunes/no-comunes.component';
 import { OrdenarComponent } from './core/pages/ordenar/ordenar.component';
 import { LoginComponent } from './core/pages/login/basicos.component';
+import { AuthGuard } from './core/pages/guard/guard.service';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   {
     path: 'home',
     component: BasicosComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'numeros',
