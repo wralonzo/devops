@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { VentasModule } from './ventas/ventas.module';
+import { CoreModule } from './core/core.module';
 import { AppRouterModule } from './app-router.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Cambiar el local de la app
 import localeEsGT from '@angular/common/locales/es-GT';
 import { registerLocaleData } from '@angular/common';
+import { LoginModule } from './core/pages/login/login.module';
 
 registerLocaleData(localeEsGT);
 @NgModule({
@@ -17,7 +18,8 @@ registerLocaleData(localeEsGT);
     BrowserModule,
     AppRouterModule,
     SharedModule,
-    VentasModule,
+    CoreModule,
+    LoginModule,
     BrowserAnimationsModule
   ],
   providers: [

@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
-import { BasicosComponent } from './ventas/pages/basicos/basicos.component';
-import { NumerosComponent } from './ventas/pages/numeros/numeros.component';
-import { NoComunesComponent } from './ventas/pages/no-comunes/no-comunes.component';
-import { OrdenarComponent } from './ventas/pages/ordenar/ordenar.component';
+import { BasicosComponent } from './core/pages/basicos/basicos.component';
+import { NumerosComponent } from './core/pages/numeros/numeros.component';
+import { NoComunesComponent } from './core/pages/no-comunes/no-comunes.component';
+import { OrdenarComponent } from './core/pages/ordenar/ordenar.component';
+import { LoginComponent } from './core/pages/login/basicos.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
     component: BasicosComponent,
     pathMatch: 'full'
   },

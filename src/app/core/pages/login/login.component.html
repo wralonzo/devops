@@ -1,0 +1,81 @@
+<!-- <form> -->
+<div
+  class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden"
+>
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div
+      style="
+        border-radius: 56px;
+        padding: 0.3rem;
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(47, 121, 9, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      "
+    >
+      <div class="text-center mb-5">
+        <!-- <img src="assets/demo/images/logos/logo1.jpeg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">  -->
+      </div>
+      <div
+        class="w-full surface-card py-8 px-5 sm:px-8"
+        style="border-radius: 53px"
+      >
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="text-center mb-5">
+            <!-- <img src="assets/demo/images/logos/logo10.jpeg" alt="Image" height="50" class="mb-3"> -->
+            <div class="text-900 text-3xl font-medium mb-3">
+              Bienvenido,, capacitaciones en linea!
+            </div>
+            <span class="text-600 font-medium"
+              >Inicie sesión para continuar</span
+            >
+          </div>
+
+          <div>
+            <label for="email1" class="block text-900 text-xl font-medium mb-2"
+              >Usuario</label
+            >
+            <input
+            formControlName="email"
+              id="email"
+              type="text"
+              placeholder="Email address"
+              pInputText
+              class="w-full md:w-30rem mb-5"
+              style="padding: 1rem"
+            />
+
+            <label for="email1" class="block text-900 text-xl font-medium mb-2"
+              >Clave</label
+            >
+            <input
+            formControlName="password"
+              inputStyleClass="w-full"
+              id="password"
+              type="password"
+              placeholder="Email address"
+              pInputPassword
+              class="w-full md:w-69rem mb-5"
+              style="padding: 1rem"
+            />
+            <button
+              pButton
+              pRipple
+              class="text-center center-text w-full p-3 text-xl p-button-success"
+            >
+              Iniciar sesión
+            </button>
+            <!-- <button pButton pRipple label="Iniciar sesión" [routerLink]="['home']"></button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </form> -->
+
+<!-- <label for="Password" class="block text-900 text-xl font-medium mb-2">Password</label>
+                  <input id="Password" type="password" placeholder="Email address" pInputPassword class="w-full md:w-30rem mb-5" style="padding:1rem" >
+                  -->
