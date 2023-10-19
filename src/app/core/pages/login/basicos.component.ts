@@ -25,7 +25,7 @@ export class LoginComponent{
       contrasenia: this.loginForm.value.password 
     };
     debugger;
-    this.http.post<any>("http://localhost:8080/api/v1/auth/authenticar", payload)
+    this.http.post<any>("http://20.115.58.35:8080:8080/api/v1/auth/authenticar", payload)
     .subscribe(res=>{
       if(!res.token){
         alert('Error credenciales no validas');
