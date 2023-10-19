@@ -24,9 +24,9 @@ export class LoginComponent{
       email: this.loginForm.value.email,
       contrasenia: this.loginForm.value.password 
     };
-    debugger;
-    this.http.post<any>("http://20.115.58.35:8080:8080/api/v1/auth/authenticar", payload)
+    this.http.post<any>("http://20.115.58.35:8080/api/v1/auth/authenticar", payload)
     .subscribe(res=>{
+      debugger;
       if(!res.token){
         alert('Error credenciales no validas');
         return;
@@ -34,6 +34,7 @@ export class LoginComponent{
       localStorage.setItem("token", res.token);
       this.router.navigateByUrl('/home')
     },err=>{
+      debugger;
      alert('Error credenciales no validas');
     })
   }
