@@ -1,6 +1,15 @@
 <app-menu></app-menu>
 <div class="lex flex-row flex-wrap pl-6 pr-6">
 <h1>Lista de usuarios</h1>
+<div class="py-2 w-12rem m-3 border-round">
+  <button
+            pButton
+            class="text-center center-text w-full p-3 text-xl p-button-success"
+            [routerLink]="['/user/register']"
+            label="Nuevo"
+            severity="success"
+          ></button>
+</div>
   <p-table
     [value]="dataRequest"
     [tableStyle]="{ 'min-width': '60rem' }"

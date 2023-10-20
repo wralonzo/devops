@@ -34,7 +34,7 @@ export class LoginComponent{
       localStorage.setItem("token", res.token);
       this.router.navigateByUrl('/home')
     },err=>{
-     alert('Error credenciales no validas');
+     alert('Error credenciales no validas'+ err.error ?? '');
     })
   }
 

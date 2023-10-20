@@ -8,6 +8,7 @@ import { LoginComponent } from './core/pages/login/basicos.component';
 import { AuthGuard } from './core/pages/guard/guard.service';
 import { RegisterComponet } from './core/pages/register/register.component';
 import { ListRequesComponent } from './core/pages/request/list/list.component';
+import { CrearSolicitudComponet } from './core/pages/request/create/crear.solicitud.componente';
 
 const routes: Routes = [
   {
@@ -25,8 +26,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'request',
+    path: 'user',
     component: ListRequesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'user/register',
+    component: CrearSolicitudComponet,
     canActivate: [AuthGuard]
   },
   {

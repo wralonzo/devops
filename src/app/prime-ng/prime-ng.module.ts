@@ -7,6 +7,7 @@ import {FieldsetModule} from 'primeng/fieldset';
 import {ToolbarModule} from 'primeng/toolbar';
 import {TableModule} from 'primeng/table';
 import { DividerModule } from 'primeng/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,9 @@ import { DividerModule } from 'primeng/divider';
     FieldsetModule,
     TableModule,
     ToolbarModule,
-    DividerModule
+    DividerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class PrimeNgModule { }

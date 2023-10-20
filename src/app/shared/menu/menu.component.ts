@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit {
       {
         label: 'Usuarios',
         icon: 'pi pi-list',
-        routerLink: '/request'
+        routerLink: '/user'
       },
       {
         label: 'Cerrar sesion',

@@ -13,6 +13,7 @@ import { OrdenarPipe } from './pipes/ordenar.pipe';
 import { CoreComponent } from './core.component';
 import { SharedModule } from '../shared/shared.module';
 import { RequestModule } from './pages/request/request.module';
+import { CoreRoutingModule } from './core.routing.module';
 
 
 
@@ -31,8 +32,7 @@ import { RequestModule } from './pages/request/request.module';
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
-    OrdenarComponent,
-    RequestModule
+    OrdenarComponent
   ],
   imports: [
     RequestModule,

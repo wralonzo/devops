@@ -4,16 +4,7 @@
   >
     <div class="flex flex-column align-items-center justify-content-center">
       <div
-        style="
-          border-radius: 56px;
-          padding: 0.3rem;
-          background: linear-gradient(
-            90deg,
-            rgba(2, 0, 36, 1) 0%,
-            rgba(47, 121, 9, 1) 35%,
-            rgba(0, 212, 255, 1) 100%
-          );
-        "
+        
       >
         <div class="text-center mb-5">
           <!-- <img src="assets/demo/images/logos/logo1.jpeg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">  -->
@@ -85,6 +76,18 @@
                 class="w-full md:w-69rem mb-5"
                 style="padding: 1rem"
               />
+              <label for="email1" class="block text-900 text-xl font-medium mb-2"
+                >ROL</label
+              >
+              <input
+          formControlName="rol"
+            id="rol"
+            type="text"
+            placeholder="Rol"
+            pInputText
+            class="w-full md:w-69rem mb-5"
+            style="padding: 1rem"
+          />
               <button
                 pButton
                 pRipple
@@ -94,17 +97,6 @@
               </button>
             </div>
           </form>
-          <br>
-              <div class="mb-2">
-                <button
-                  pButton
-                  pRipple
-                  class="text-center center-text w-full p-3 text-xl p-button-help"
-                  [routerLink]="['/']"
-                  label="Iniciar sesión"
-                  severity="help"
-                ></button>
-              </div>
         </div>
       </div>
     </div>
