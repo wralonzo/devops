@@ -36,16 +36,15 @@ export class MenuComponent implements OnInit {
         routerLink: '/home',
 
       },
-      // {
-      //   label: 'Clientes',
-      //   icon: 'pi pi-cog',
-      //   routerLink: 'ordenar'
-      // },
+      {
+        label: 'Solicitud de capacitaciones',
+        icon: 'pi pi-list',
+        routerLink: '/request'
+      },
       {
         label: 'Cerrar sesion',
         icon: 'pi pi-cog',
         command: (event) => {
-          debugger;
           this.router.navigateByUrl('/')
           localStorage.clear();
         }

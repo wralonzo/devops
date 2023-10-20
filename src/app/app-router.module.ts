@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { BasicosComponent } from './core/pages/basicos/basicos.component';
-import { NumerosComponent } from './core/pages/numeros/numeros.component';
 import { NoComunesComponent } from './core/pages/no-comunes/no-comunes.component';
 import { OrdenarComponent } from './core/pages/ordenar/ordenar.component';
 import { LoginComponent } from './core/pages/login/basicos.component';
 import { AuthGuard } from './core/pages/guard/guard.service';
 import { RegisterComponet } from './core/pages/register/register.component';
+import { ListRequesComponent } from './core/pages/request/list/list.component';
 
 const routes: Routes = [
   {
@@ -25,20 +25,23 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'numeros',
-    component: NumerosComponent
+    path: 'request',
+    component: ListRequesComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'no-comunes',
+    path: 'tools',
     component: NoComunesComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'ordenar',
-    component: OrdenarComponent
+    path: 'training',
+    component: OrdenarComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/home'
   }
 ];
 

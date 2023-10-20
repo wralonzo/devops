@@ -12,6 +12,7 @@ import { VuelaPipe } from './pipes/vuela.pipe';
 import { OrdenarPipe } from './pipes/ordenar.pipe';
 import { CoreComponent } from './core.component';
 import { SharedModule } from '../shared/shared.module';
+import { RequestModule } from './pages/request/request.module';
 
 
 
@@ -30,9 +31,11 @@ import { SharedModule } from '../shared/shared.module';
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
-    OrdenarComponent
+    OrdenarComponent,
+    RequestModule
   ],
   imports: [
+    RequestModule,
     CommonModule,
     PrimeNgModule,
     SharedModule
