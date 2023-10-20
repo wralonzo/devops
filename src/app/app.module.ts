@@ -11,6 +11,7 @@ import localeEsGT from '@angular/common/locales/es-GT';
 import { registerLocaleData } from '@angular/common';
 import { LoginModule } from './core/pages/login/login.module';
 import { AuthGuard } from './core/pages/guard/guard.service';
+import { RegisterModule } from './core/pages/register/register.module';
 
 registerLocaleData(localeEsGT);
 @NgModule({
@@ -21,6 +22,7 @@ registerLocaleData(localeEsGT);
     SharedModule,
     CoreModule,
     LoginModule,
+    RegisterModule,
     BrowserAnimationsModule
   ],
   providers: [

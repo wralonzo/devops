@@ -34,24 +34,49 @@
           </div>
 
           <div>
-            <label for="email1" class="block text-900 text-xl font-medium mb-2"
-              >Usuario</label
+            <label for="nombre" class="block text-900 text-xl font-medium mb-2"
+              >Nombres</label
             >
             <input
-              formControlName="email"
-              id="email"
+            formControlName="nombre"
+              id="Nombres"
               type="text"
-              placeholder="Usuario"
+              placeholder="Nombres"
               pInputText
               class="w-full md:w-30rem mb-5"
               style="padding: 1rem"
             />
+            <label for="Apellidos" class="block text-900 text-xl font-medium mb-2"
+            >Apellidos</label
+          >
+          <input
+          formControlName="apellido"
+            id="apellido"
+            type="text"
+            placeholder="Apellidos"
+            pInputText
+            class="w-full md:w-30rem mb-5"
+            style="padding: 1rem"
+          />
+
+          <label for="email1" class="block text-900 text-xl font-medium mb-2"
+          >Usuario</label
+        >
+        <input
+        formControlName="email"
+          id="email"
+          type="text"
+          placeholder="Usuario"
+          pInputText
+          class="w-full md:w-30rem mb-5"
+          style="padding: 1rem"
+        />
 
             <label for="email1" class="block text-900 text-xl font-medium mb-2"
               >Clave</label
             >
             <input
-              formControlName="password"
+            formControlName="password"
               inputStyleClass="w-full"
               id="password"
               type="password"
@@ -63,29 +88,24 @@
             <button
               pButton
               pRipple
+              label="Registrarse"
               class="text-center center-text w-full p-3 text-xl p-button-success"
-              label="Iniciar sesión"
-              severity="help"
-            ></button>
+            >
+            </button>
           </div>
         </form>
         <br>
-        <div class="mb-2">
-          <button
-            pButton
-            pRipple
-            class="text-center center-text w-full p-3 text-xl p-button-help"
-            [routerLink]="['/register']"
-            label="Registrarse"
-            severity="help"
-          ></button>
-        </div>
+            <div class="mb-2">
+              <button
+                pButton
+                pRipple
+                class="text-center center-text w-full p-3 text-xl p-button-help"
+                [routerLink]="['/']"
+                label="Iniciar sesión"
+                severity="help"
+              ></button>
+            </div>
       </div>
     </div>
   </div>
 </div>
-<!-- </form> -->
-
-<!-- <label for="Password" class="block text-900 text-xl font-medium mb-2">Password</label>
-                  <input id="Password" type="password" placeholder="Email address" pInputPassword class="w-full md:w-30rem mb-5" style="padding:1rem" >
-                  -->

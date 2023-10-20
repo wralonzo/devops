@@ -1,0 +1,51 @@
+.toolCard {
+  &.p-card {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .toolCard{
+    padding: 2rem !important;
+    background: #09aaf5;
+    color: #fff;
+  }
+}
+
+.toolCard2{
+  &.p-card {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .toolCard2{
+    padding: 2rem !important;
+    background: #f5be09;
+    color: #fff;
+  }
+}
+  
+
+.toolCard1 {
+  &.p-card {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .toolCard1{
+    padding: 2rem !important;
+    background: #ad154d;
+    color: #fff;
+  }
+}
+
+
+.toolCard3 {
+  &.p-card {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .toolCard3{
+    padding: 2rem !important;
+    background: #8a15ad;
+    color: #fff;
+  }
+}
+  
+  

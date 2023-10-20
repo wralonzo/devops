@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import { hostApi } from '../../constants/host-api';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent{
+export class RegisterComponet{
   public loginForm!: FormGroup
 
   constructor(private formbuilder: FormBuilder,private http: HttpClient, private router: Router) { }
@@ -17,24 +17,29 @@ export class LoginComponent{
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
       email: [''],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required]
     })
   }
   login(){
     const payload = {
       email: this.loginForm.value.email,
-      contrasenia: this.loginForm.value.password 
+      contrasenia: this.loginForm.value.password ,
+      nombre: this.loginForm.value.nombre,
+      apellido: this.loginForm.value.apellido
     };
-    this.http.post<any>(hostApi+"authenticar", payload)
+    this.http.post<any>(hostApi+"registro", payload)
     .subscribe(res=>{
       if(!res.token){
-        alert('Error credenciales no validas');
+        alert('No se registro el usuario');
         return;
       }
       localStorage.setItem("token", res.token);
-      this.router.navigateByUrl('/home')
+     alert('Registro exitos');
+      this.router.navigateByUrl('/login')
     },err=>{
-     alert('Error credenciales no validas');
+     alert('Error al conectar al servidor');
     })
   }
 
