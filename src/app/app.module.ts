@@ -12,6 +12,8 @@ import { registerLocaleData } from '@angular/common';
 import { LoginModule } from './core/pages/login/login.module';
 import { AuthGuard } from './core/pages/guard/guard.service';
 import { RegisterModule } from './core/pages/register/register.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthenticatedInterceptor } from './interceptors/authenticated.interceptor';
 
 registerLocaleData(localeEsGT);
 @NgModule({
@@ -27,7 +29,12 @@ registerLocaleData(localeEsGT);
   ],
   providers: [
     AuthGuard,
-    { provide: LOCALE_ID, useValue: 'es-GT' }
+    { provide: LOCALE_ID, useValue: 'es-GT' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticatedInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

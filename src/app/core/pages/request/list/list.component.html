@@ -1,3 +1,47 @@
-
 <app-menu></app-menu>
-<h1>Lista de solictude de suscripcion</h1>
+<div class="lex flex-row flex-wrap pl-6 pr-6">
+<h1>Lista de usuarios</h1>
+  <p-table
+    [value]="dataRequest"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    #dt1
+    dataKey="id"
+    [rowHover]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]="loading"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="code" style="width: 20%">
+          Code <p-sortIcon field="code"></p-sortIcon>
+        </th>
+        <th pSortableColumn="name" style="width: 20%">
+          Name <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="category" style="width: 20%">
+          Category <p-sortIcon field="category"></p-sortIcon>
+        </th>
+        <th pSortableColumn="quantity" style="width: 20%">
+          Quantity <p-sortIcon field="quantity"></p-sortIcon>
+        </th>
+        <th pSortableColumn="price" style="width: 20%">
+          Price <p-sortIcon field="price"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.nombre }}</td>
+        <td>{{ customer.apellido }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.authorities[0].authority }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

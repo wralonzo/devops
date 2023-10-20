@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, catchError, retry } from 'rxjs';
+import { Table } from 'primeng/table';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 
 @Component({
@@ -12,7 +12,9 @@ import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 export class ListRequesComponent {
   public loginForm!: FormGroup;
   public dataRequest = [];
-
+  public optionsHttp: any;
+  loading: boolean = true;
+  @ViewChild('dt') dt: Table | undefined;
   constructor(
     private formbuilder: FormBuilder,
     private http: HttpClient,
@@ -55,28 +57,28 @@ export class ListRequesComponent {
   }
 
   getData() {
-    const data = this.GetIssues().subscribe((pais) => {
-      debugger;
-      this.dataRequest = pais;
-    });
+    const data = this.getRandomJoke();
   }
-
-  GetIssues(): Observable<any> {
-    const baseurl = hostGets + 'solicitud-capacitacion';
-    const headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    };
-    return this.http.get<any>(baseurl, { headers });
+  clear(table: Table) {
+    table.clear();
   }
-
-  //   public buscarRegion( termino: string ): Observable<Country[]>{
-  //     const URL: string = `${this.BASE_URL}regionalbloc/${termino}`;
-  //     return this.http.get<Country[]>( URL, { params: this.httpParams } );
-  // }
-  // get httpParams(){
-  //     const httpParams: HttpParams = new HttpParams()
-  //     .set('Authorization', );
-  //     return httpParams;
-  // }
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
+  getEventValue($event: any): string {
+    return $event.target.value;
+  }
+  getRandomJoke() {
+    const token = localStorage.getItem('token')!;
+    const baseurl = hostGets + 'usuario';
+    const data = this.http.get<any>(baseurl).subscribe(
+      (res) => {
+        this.dataRequest = res;
+        this.loading = false;
+      },
+      (err) => {
+        this.loading = false;
+      }
+    );
+  }
 }

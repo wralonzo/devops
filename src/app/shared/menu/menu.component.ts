@@ -37,7 +37,7 @@ export class MenuComponent implements OnInit {
 
       },
       {
-        label: 'Solicitud de capacitaciones',
+        label: 'Usuarios',
         icon: 'pi pi-list',
         routerLink: '/request'
       },
