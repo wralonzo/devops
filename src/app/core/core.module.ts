@@ -14,6 +14,7 @@ import { CoreComponent } from './core.component';
 import { SharedModule } from '../shared/shared.module';
 import { RequestModule } from './pages/request/request.module';
 import { CoreRoutingModule } from './core.routing.module';
+import { SuscripcionModule } from './pages/suscripcion/suscripcion.module';
 
 
 
@@ -32,10 +33,12 @@ import { CoreRoutingModule } from './core.routing.module';
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
-    OrdenarComponent
+    OrdenarComponent,
+    SuscripcionModule
   ],
   imports: [
     RequestModule,
+    SuscripcionModule,
     CommonModule,
     PrimeNgModule,
     SharedModule

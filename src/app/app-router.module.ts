@@ -9,6 +9,7 @@ import { AuthGuard } from './core/pages/guard/guard.service';
 import { RegisterComponet } from './core/pages/register/register.component';
 import { ListRequesComponent } from './core/pages/request/list/list.component';
 import { CrearSolicitudComponet } from './core/pages/request/create/crear.solicitud.componente';
+import { ListSuscripcionComponent } from './core/pages/suscripcion/list/list.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'user',
     component: ListRequesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'suscription',
+    component: ListSuscripcionComponent,
     canActivate: [AuthGuard]
   },
   {
