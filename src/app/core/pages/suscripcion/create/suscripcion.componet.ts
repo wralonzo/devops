@@ -7,7 +7,6 @@ import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 @Component({
   selector: 'app-register',
   templateUrl: './suscripcion.component.html',
-  styleUrls: ['./suscripcion.componente.css'],
 })
 export class CrearSuscripcionComponet {
   public loginForm!: FormGroup;
