@@ -47,6 +47,11 @@ export class MenuComponent implements OnInit {
         routerLink: '/suscription'
       },
       {
+        label: 'Solicitudes',
+        icon: 'pi pi-list',
+        routerLink: '/solicitud'
+      },
+      {
         label: 'Cerrar sesion',
         icon: 'pi pi-cog',
         command: (event) => {

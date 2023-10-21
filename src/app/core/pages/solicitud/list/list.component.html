@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class="lex flex-row flex-wrap pl-6 pr-6">
-<h1>Lista de suscripciones</h1>
-<div class="py-2 w-12rem m-3 border-round">
+<h1>Lista de solicitudes de capacitaciones</h1>
+<!-- <div class="py-2 w-12rem m-3 border-round">
   <button
             pButton
             class="text-center center-text w-full p-3 text-xl p-button-success"
@@ -9,7 +9,7 @@
             label="Nuevo"
             severity="success"
           ></button>
-</div>
+</div> -->
   <p-table
     [value]="dataRequest"
     [tableStyle]="{ 'min-width': '60rem' }"
@@ -27,29 +27,29 @@
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="code" style="width: 20%">
-          Code <p-sortIcon field="code"></p-sortIcon>
+          Estado <p-sortIcon field="code"></p-sortIcon>
         </th>
         <th pSortableColumn="name" style="width: 20%">
-          Fecha inicio <p-sortIcon field="name"></p-sortIcon>
+          fecha Solicitud <p-sortIcon field="name"></p-sortIcon>
         </th>
         <th pSortableColumn="category" style="width: 20%">
-          Fecha fon <p-sortIcon field="category"></p-sortIcon>
+          nombre Empresa <p-sortIcon field="category"></p-sortIcon>
         </th>
         <th pSortableColumn="quantity" style="width: 20%">
-          Metodo de pago <p-sortIcon field="quantity"></p-sortIcon>
+          recibo Pago <p-sortIcon field="quantity"></p-sortIcon>
         </th>
         <th pSortableColumn="price" style="width: 20%">
-          Precio <p-sortIcon field="price"></p-sortIcon>
+          usuario <p-sortIcon field="price"></p-sortIcon>
         </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
       <tr>
-        <td>{{ customer.suscripcion }}</td>
-        <td>{{ customer.fechaIncio }}</td>
-        <td>{{ customer.fechaFin }}</td>
-        <td>{{ customer.metodoPago }}</td>
-        <td>{{ customer.precio }}</td>
+        <td>{{ customer.estado }}</td>
+        <td>{{ customer.fechaSolicitud }}</td>
+        <td>{{ customer.nombreEmpresa }}</td>
+        <td>{{ customer.reciboPago }}</td>
+        <td>{{ customer.usuario.nombre }} - {{ customer.usuario.apellido }}</td>
       </tr>
     </ng-template>
   </p-table>

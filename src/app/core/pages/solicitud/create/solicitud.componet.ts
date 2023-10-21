@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './suscripcion.component.html',
+  selector: 'app-register-solicitud',
+  templateUrl: './solicitud.component.html',
 })
-export class CrearSuscripcionComponet {
+export class CrearSolicitudComponet {
   public loginForm!: FormGroup;
 
   constructor(

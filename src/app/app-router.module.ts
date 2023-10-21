@@ -10,60 +10,69 @@ import { RegisterComponet } from './core/pages/register/register.component';
 import { ListRequesComponent } from './core/pages/request/list/list.component';
 import { CrearSolicitudComponet } from './core/pages/request/create/crear.solicitud.componente';
 import { ListSuscripcionComponent } from './core/pages/suscripcion/list/list.component';
+import { CrearSuscripcionComponet } from './core/pages/suscripcion/create/suscripcion.componet';
+import { ListSolicitudSusComponent } from './core/pages/solicitud/list/list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
-    component: RegisterComponet
+    component: RegisterComponet,
   },
   {
     path: 'home',
     component: BasicosComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'user',
     component: ListRequesComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'suscription',
     component: ListSuscripcionComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'user/register',
     component: CrearSolicitudComponet,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
+  {
+    path: 'solicitud',
+    component: ListSolicitudSusComponent,
+    canActivate: [AuthGuard],
+  },
+
   {
     path: 'tools',
     component: NoComunesComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'suscription/register',
+    component: CrearSuscripcionComponet,
+    canActivate: [AuthGuard],
   },
   {
     path: 'training',
     component: OrdenarComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
-    redirectTo: '/home'
-  }
+    redirectTo: '/home',
+  },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    RouterModule.forRoot( routes )
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRouterModule { }
+export class AppRouterModule {}
