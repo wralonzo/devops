@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 
 @Component({
-  selector: 'app-register-solicitud',
-  templateUrl: './solicitud.component.html',
+  selector: 'app-register-matriz',
+  templateUrl: './matriz.component.html',
 })
-export class CrearSolicitudCapacitacionComponet {
+export class CrearMatrizComponet {
   public loginForm!: FormGroup;
 
   constructor(
@@ -19,36 +19,30 @@ export class CrearSolicitudCapacitacionComponet {
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
-      estado: ['', Validators.required],
-      fechaSolicitud: ['', Validators.required],
-      nombreEmpresa: ['', Validators.required],
-      reciboPago: ['', Validators.required],
+      nombre: ['', Validators.required],
+      fechaCreacion: ['', Validators.required],
+      areaOportunidad: ['', Validators.required],
     });
   }
   login() {
     const token = localStorage.getItem('token');
     const payload = {
-      estado: this.loginForm.value.estado,
-      fechaSolicitud: this.loginForm.value.fechaSolicitud,
-      nombreEmpresa: this.loginForm.value.nombreEmpresa,
-      reciboPago: this.loginForm.value.reciboPago,
+      nombre: this.loginForm.value.nombre,
+      fechaCreacion: this.loginForm.value.fechaCreacions,
+      areaOportunidad: this.loginForm.value.areaOportunidads,
     };
 
     this.http
-      .post<any>(hostGets + 'solicitud-capacitacion', payload, {
+      .post<any>(hostGets + 'matriz-riesgo', payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .subscribe(
         (res) => {
-          if (!res.token) {
-            alert('No se registro el usuario');
-            return;
-          }
           localStorage.setItem('token', res.token);
-          alert('Registro exitos');
-          this.router.navigateByUrl('/solicitud');
+          alert('Registro exito');
+          this.router.navigateByUrl('/matriz');
         },
         (err) => {
           alert(err.error ?? 'Error al conectar al servidor');

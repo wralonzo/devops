@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 
 @Component({
-  selector: 'app-register-solicitud',
-  templateUrl: './solicitud.component.html',
+  selector: 'app-register-tool',
+  templateUrl: './tool.component.html',
 })
-export class CrearSolicitudCapacitacionComponet {
+export class CrearToolComponet {
   public loginForm!: FormGroup;
 
   constructor(
@@ -19,36 +19,32 @@ export class CrearSolicitudCapacitacionComponet {
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
-      estado: ['', Validators.required],
-      fechaSolicitud: ['', Validators.required],
-      nombreEmpresa: ['', Validators.required],
-      reciboPago: ['', Validators.required],
+      nombre: ['', Validators.required],
+      tipo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      contenido: ['', Validators.required],
     });
   }
   login() {
     const token = localStorage.getItem('token');
     const payload = {
-      estado: this.loginForm.value.estado,
-      fechaSolicitud: this.loginForm.value.fechaSolicitud,
-      nombreEmpresa: this.loginForm.value.nombreEmpresa,
-      reciboPago: this.loginForm.value.reciboPago,
+      nombre: this.loginForm.value.nombre,
+      tipo: this.loginForm.value.tipo,
+      descripcion: this.loginForm.value.descripcion,
+      contenido: this.loginForm.value.contenido,
     };
 
     this.http
-      .post<any>(hostGets + 'solicitud-capacitacion', payload, {
+      .post<any>(hostGets + 'herramienta', payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .subscribe(
         (res) => {
-          if (!res.token) {
-            alert('No se registro el usuario');
-            return;
-          }
           localStorage.setItem('token', res.token);
-          alert('Registro exitos');
-          this.router.navigateByUrl('/solicitud');
+          alert('Registro exito');
+          this.router.navigateByUrl('/tool');
         },
         (err) => {
           alert(err.error ?? 'Error al conectar al servidor');

@@ -7,7 +7,7 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './menu.component.html',
 })
 export class MenuComponent implements OnInit {
-  items: MenuItem[] = [] ;
+  items: MenuItem[] = [];
 
   constructor(private router: Router) {}
 
@@ -34,31 +34,47 @@ export class MenuComponent implements OnInit {
         //   }
         // ]
         routerLink: '/home',
-
       },
       {
         label: 'Usuarios',
-        icon: 'pi pi-list',
-        routerLink: '/user'
+        icon: 'pi pi-user',
+        routerLink: '/user',
       },
       {
         label: 'Suscripcion',
-        icon: 'pi pi-list',
-        routerLink: '/suscription'
+        icon: 'pi pi-credit-card',
+        routerLink: '/suscription',
       },
       {
         label: 'Solicitudes',
+        icon: 'pi pi-calculator',
+        routerLink: '/solicitud',
+      },
+      {
+        label: 'Capacitacion',
         icon: 'pi pi-list',
-        routerLink: '/solicitud'
+        routerLink: '/capacitacion',
+      },
+
+      {
+        label: 'Matriz de riesgos',
+        icon: 'pi pi-database',
+        routerLink: '/matriz',
+      },
+
+      {
+        label: 'Herramientas',
+        icon: 'pi pi-book',
+        routerLink: '/tool',
       },
       {
         label: 'Cerrar sesion',
         icon: 'pi pi-cog',
         command: (event) => {
-          this.router.navigateByUrl('/')
           localStorage.clear();
-        }
-      }
+          this.router.navigateByUrl('/');
+        },
+      },
     ];
   }
 }

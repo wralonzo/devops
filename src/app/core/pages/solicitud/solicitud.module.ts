@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { ListSolicitudSusComponent } from './list/list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CrearSolicitudComponet } from './create/solicitud.componet';
+import { CrearSolicitudCapacitacionComponet } from './create/solicitud.componet';
 
 @NgModule({
-  declarations: [ListSolicitudSusComponent, CrearSolicitudComponet],
-  exports: [ListSolicitudSusComponent, CrearSolicitudComponet],
+  declarations: [ListSolicitudSusComponent, CrearSolicitudCapacitacionComponet],
+  exports: [ListSolicitudSusComponent, CrearSolicitudCapacitacionComponet],
   imports: [CommonModule, PrimeNgModule, SharedModule],
 })
 export class SolicitudModule {}

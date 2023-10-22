@@ -14,6 +14,7 @@ import { AuthGuard } from './core/pages/guard/guard.service';
 import { RegisterModule } from './core/pages/register/register.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticatedInterceptor } from './interceptors/authenticated.interceptor';
+import { UnauthenticatedInterceptor } from './interceptors/unauthenticated.interceptor';
 
 registerLocaleData(localeEsGT);
 @NgModule({
@@ -25,7 +26,7 @@ registerLocaleData(localeEsGT);
     CoreModule,
     LoginModule,
     RegisterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthGuard,
@@ -33,6 +34,11 @@ registerLocaleData(localeEsGT);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticatedInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthenticatedInterceptor,
       multi: true,
     },
   ],
