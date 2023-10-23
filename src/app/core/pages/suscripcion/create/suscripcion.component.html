@@ -26,7 +26,8 @@
             <label
               for="suscripcion"
               class="block text-900 text-xl font-medium mb-2"
-              >suscripcion</label
+              >suscripcion (MENSUAL, ANUAL, COORPORATIVA_MENSUAL,
+              COORPORATIVA_ANUAL)</label
             >
             <input
               formControlName="suscripcion"
@@ -34,7 +35,7 @@
               type="text"
               placeholder="suscripcion"
               pInputText
-              class="w-full md:w-30rem mb-5"
+              class="w-full mb-5"
               style="padding: 1rem"
             />
             <label
@@ -48,8 +49,9 @@
               type="text"
               placeholder="fecha Incio"
               pInputText
-              class="w-full md:w-30rem mb-5"
+              class="w-full mb-5"
               style="padding: 1rem"
+              [(ngModel)]="dateNowCurrent"
             />
 
             <label
@@ -63,22 +65,25 @@
               type="text"
               placeholder="fechaFin"
               pInputText
-              class="w-full md:w-30rem mb-5"
+              class="w-full mb-5"
               style="padding: 1rem"
+              [(ngModel)]="dateNowCurrent"
             />
 
-            <label for="metodoPago" class="block text-900 text-xl font-medium mb-2"
-            >fmetodo Pago</label
-          >
-          <input
-          formControlName="metodoPago"
-            id="metodoPago"
-            type="text"
-            placeholder="metodoPago"
-            pInputText
-            class="w-full md:w-30rem mb-5"
-            style="padding: 1rem"
-          />
+            <label
+              for="metodoPago"
+              class="block text-900 text-xl font-medium mb-2"
+              >Método Pago (TARJETA, PAYPAL)</label
+            >
+            <input
+              formControlName="metodoPago"
+              id="metodoPago"
+              type="text"
+              placeholder="metodoPago"
+              pInputText
+              class="w-full mb-5"
+              style="padding: 1rem"
+            />
 
             <label for="precio" class="block text-900 text-xl font-medium mb-2"
               >precio</label
@@ -89,7 +94,7 @@
               type="text"
               placeholder="precio"
               pInputText
-              class="w-full md:w-69rem mb-5"
+              class="w-full mb-5"
               style="padding: 1rem"
             />
             <button

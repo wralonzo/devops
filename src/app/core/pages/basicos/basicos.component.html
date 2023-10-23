@@ -1,30 +1,34 @@
 <app-menu></app-menu>
-<div class="text-layout">
-  <h3>Proyecto UMG</h3>
+<div class="text-layout py-10">
   <p>Seminario -Integracion DEVOPS-</p>
 </div>
 
-<div class="grid">
+<div class="grid py-10">
   <div class="col-3">
-    <p-card styleClass="toolCard" header="Usuarios"  class="toolCard">
-      {{ nombreLower | uppercase }}
-    </p-card>
-  </div>
-
-  <div class="col-3" >
-    <p-card styleClass="toolCard1" header="Clientes"  class="toolCard1">
-      {{ nombreLower | uppercase }}
+    <p-card styleClass="toolCard" header="Usuarios" class="toolCard">
+      Usuarios
     </p-card>
   </div>
 
   <div class="col-3">
-    <p-card  styleClass="toolCard2" header="Suscripciones"  class="toolCard2">
-      {{ nombreCompleto | uppercase }}
+    <p-card styleClass="toolCard1" header="Clientes" class="toolCard1">
+      Clientes
+    </p-card>
+  </div>
+
+  <div class="col-3">
+    <p-card styleClass="toolCard2" header="Suscripciones" class="toolCard2">
+      Suscripciones
     </p-card>
   </div>
   <div class="col-3">
-    <p-card styleClass="toolCard3" header="Capacitaciones"   class="toolCard3">
+    <p-card styleClass="toolCard3" header="Capacitaciones" class="toolCard3">
       Capacitaciones
     </p-card>
   </div>
+</div>
+<div class="container py-10 mb-5 px-10">
+  <h3>Bienvenido: {{ nombre }} - {{ apellido }}</h3>
+  <h5>Rol: {{ rol }}</h5>
+  <h5>Correo: {{ email }}</h5>
 </div>

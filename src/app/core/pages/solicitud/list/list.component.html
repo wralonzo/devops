@@ -56,7 +56,12 @@
         <td>
           <span>
             <!-- <p-button icon="pi pi-pencil" class="px-2" severity="primary"></p-button> -->
-            <p-button icon="pi pi-trash" severity="danger"></p-button
+            
+            <p-button
+              icon="pi pi-trash"
+              severity="danger"
+              (click)="delete($event, customer.idSolicitudCapacitacion)"
+            ></p-button
           ></span>
         </td>
       </tr>

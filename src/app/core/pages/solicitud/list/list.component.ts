@@ -60,7 +60,12 @@ export class ListSolicitudSusComponent {
         alert('Registro eliminado');
       },
       (err) => {
-        alert(err.error || 'Error al intentar conectar con el servidor');
+        this.getData();
+        alert(
+          err.error.text ||
+            err.error ||
+            'Error al intentar conectar con el servidor'
+        );
       }
     );
   }

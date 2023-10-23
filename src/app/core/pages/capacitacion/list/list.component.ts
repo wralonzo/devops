@@ -54,7 +54,11 @@ export class ListCapacitacionComponent {
       },
       (err) => {
         this.getData();
-        alert(err.error || 'Error al intentar conectar con el servidor');
+        alert(
+          err.error.text ||
+            err.error ||
+            'Error al intentar conectar con el servidor'
+        );
       }
     );
   }

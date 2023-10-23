@@ -48,12 +48,16 @@ export class ListMatrizComponent {
     const baseurl = hostGets + 'matriz-riesgo/' + id;
     const data = this.http.delete<any>(baseurl).subscribe(
       (res) => {
-        this.dataRequest = res;
         this.getData();
         alert('Registro eliminado');
       },
       (err) => {
-        alert(err.error || 'Error al intentar conectar con el servidor');
+        this.getData();
+        alert(
+          err.error.text ||
+            err.error ||
+            'Error al intentar conectar con el servidor'
+        );
       }
     );
   }

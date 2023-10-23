@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-register-matriz',
@@ -25,25 +26,29 @@ export class CrearMatrizComponet {
     });
   }
   login() {
-    const token = localStorage.getItem('token');
     const payload = {
       nombre: this.loginForm.value.nombre,
-      fechaCreacion: this.loginForm.value.fechaCreacions,
-      areaOportunidad: this.loginForm.value.areaOportunidads,
+      fechaCreacion: formatDate(Date.now(),'yyyy-MM-dd', "en-US"),
+      areaOportunidad: this.loginForm.value.areaOportunidad,
+      usuario: {
+          idUsuario: localStorage.getItem('idUsuario'),
+          nombre: localStorage.getItem('nombre'),
+          apellido: localStorage.getItem('apellido'),
+          email: localStorage.getItem('email'),
+          contrasenia: localStorage.getItem('contrasenia'),
+          rol: localStorage.getItem('rol')
+      }
     };
 
     this.http
-      .post<any>(hostGets + 'matriz-riesgo', payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post<any>(hostGets + 'matriz-riesgo', payload)
       .subscribe(
         (res) => {
           alert('Registro exito');
           this.router.navigateByUrl('/matriz');
         },
         (err) => {
+          debugger
           alert(err.error ?? 'Error al conectar al servidor');
         }
       );

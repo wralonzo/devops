@@ -42,12 +42,10 @@ export class CrearSolicitudComponet {
       .post<any>(hostGets + 'usuario', payload)
       .subscribe(
         (res) => {
-          debugger
           alert('Registro exitos');
           this.router.navigateByUrl('/user');
         },
         (err) => {
-          debugger
           alert( err.error ?? 'Error al conectar al servidor');
         }
       );

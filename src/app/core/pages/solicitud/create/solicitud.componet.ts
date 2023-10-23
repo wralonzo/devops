@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-register-solicitud',
@@ -26,27 +27,26 @@ export class CrearSolicitudCapacitacionComponet {
     });
   }
   login() {
-    const token = localStorage.getItem('token');
     const payload = {
       estado: this.loginForm.value.estado,
-      fechaSolicitud: this.loginForm.value.fechaSolicitud,
+      fechaSolicitud: formatDate(Date.now(), 'yyyy-MM-dd', 'en-US'),
       nombreEmpresa: this.loginForm.value.nombreEmpresa,
       reciboPago: this.loginForm.value.reciboPago,
+      usuario: {
+        idUsuario: localStorage.getItem('idUsuario'),
+        nombre: localStorage.getItem('nombre'),
+        apellido: localStorage.getItem('apellido'),
+        email: localStorage.getItem('email'),
+        contrasenia: localStorage.getItem('contrasenia'),
+        rol: localStorage.getItem('rol'),
+      },
     };
 
     this.http
-      .post<any>(hostGets + 'solicitud-capacitacion', payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post<any>(hostGets + 'solicitud-capacitacion', payload)
       .subscribe(
         (res) => {
-          if (!res.token) {
-            alert('No se registro el usuario');
-            return;
-          }
-          alert('Registro exitos');
+          alert('Registro exito');
           this.router.navigateByUrl('/solicitud');
         },
         (err) => {
