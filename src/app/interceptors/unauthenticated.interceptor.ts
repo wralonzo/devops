@@ -18,18 +18,13 @@ export class UnauthenticatedInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: any) => {
-        debugger;
+        debugger
         if (error.status === 0) {
-          var data = localStorage.getItem('token');
-          alert(
-            'Error 500 en el servidor intente de nuevo o cierre sesion e intente de nuevo'
-          );
-          // localStorage.clear();
-          // this.router.navigateByUrl('/');
+          alert('Sesion vencida');
+          localStorage.clear();
+          this.router.navigateByUrl('/');
         }
-        throw {
-          error: 'Operacion exitosa',
-        };
+        throw error;
       })
     );
   }
