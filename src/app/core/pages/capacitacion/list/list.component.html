@@ -38,6 +38,9 @@
         <th pSortableColumn="quantity" style="width: 20%">
           Contendio <p-sortIcon field="quantity"></p-sortIcon>
         </th>
+        <th pSortableColumn="acciones" style="width: 20%">
+          Acciones <p-sortIcon field="price"></p-sortIcon>
+        </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
@@ -46,6 +49,16 @@
         <td>{{ customer.tipo }}</td>
         <td>{{ customer.descripcion }}</td>
         <td>{{ customer.contenido }}</td>
+        <td>
+          <span>
+            <p-button
+              icon="pi pi-pencil"
+              class="px-2"
+              severity="primary"
+            ></p-button>
+            <p-button icon="pi pi-trash" severity="danger" (click)="delete($event, customer.idCapacitacion)"></p-button
+          ></span>
+        </td>
       </tr>
     </ng-template>
   </p-table>

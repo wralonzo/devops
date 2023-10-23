@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 import { Table } from 'primeng/table';
 import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 
@@ -15,14 +14,11 @@ export class ListCapacitacionComponent {
   public optionsHttp: any;
   loading: boolean = true;
   @ViewChild('dt') dt: Table | undefined;
-  constructor(
-    private http: HttpClient,
-  ) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getRandomJoke();
   }
-
 
   getData() {
     const data = this.getRandomJoke();
@@ -46,6 +42,19 @@ export class ListCapacitacionComponent {
       },
       (err) => {
         this.loading = false;
+      }
+    );
+  }
+  delete(event: any, id: string) {
+    const baseurl = hostGets + 'capacitacion/' + id;
+    const data = this.http.delete<any>(baseurl).subscribe(
+      (res) => {
+        this.getData();
+        alert('Registro eliminado');
+      },
+      (err) => {
+        this.getData();
+        alert(err.error || 'Error al intentar conectar con el servidor');
       }
     );
   }

@@ -1,15 +1,15 @@
 <app-menu></app-menu>
 <div class="lex flex-row flex-wrap pl-6 pr-6">
-<h1>Lista de suscripciones</h1>
-<div class="py-2 w-12rem m-3 border-round">
-  <button
-            pButton
-            class="text-center center-text w-full p-3 text-xl p-button-success"
-            [routerLink]="['/suscription/register']"
-            label="Nuevo"
-            severity="success"
-          ></button>
-</div>
+  <h1>Lista de suscripciones</h1>
+  <div class="py-2 w-12rem m-3 border-round">
+    <button
+      pButton
+      class="text-center center-text w-full p-3 text-xl p-button-success"
+      [routerLink]="['/suscription/register']"
+      label="Nuevo"
+      severity="success"
+    ></button>
+  </div>
   <p-table
     [value]="dataRequest"
     [tableStyle]="{ 'min-width': '60rem' }"
@@ -26,10 +26,10 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="code" style="width: 20%">
+        <th pSortableColumn="code" style="width: 10%">
           Code <p-sortIcon field="code"></p-sortIcon>
         </th>
-        <th pSortableColumn="name" style="width: 20%">
+        <th pSortableColumn="name" style="width: 10%">
           Fecha inicio <p-sortIcon field="name"></p-sortIcon>
         </th>
         <th pSortableColumn="category" style="width: 20%">
@@ -41,6 +41,9 @@
         <th pSortableColumn="price" style="width: 20%">
           Precio <p-sortIcon field="price"></p-sortIcon>
         </th>
+        <th pSortableColumn="acciones" style="width: 20%">
+          Acciones <p-sortIcon field="price"></p-sortIcon>
+        </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
@@ -50,6 +53,16 @@
         <td>{{ customer.fechaFin }}</td>
         <td>{{ customer.metodoPago }}</td>
         <td>{{ customer.precio }}</td>
+        <td>
+          <span>
+            <p-button
+              icon="pi pi-pencil"
+              class="px-2"
+              severity="primary"
+            ></p-button>
+            <p-button icon="pi pi-trash" severity="danger"></p-button
+          ></span>
+        </td>
       </tr>
     </ng-template>
   </p-table>

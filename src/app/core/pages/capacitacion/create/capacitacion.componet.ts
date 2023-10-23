@@ -42,7 +42,6 @@ export class CrearCapacitacionComponet {
       })
       .subscribe(
         (res) => {
-          localStorage.setItem('token', res.token);
           alert('Registro exito');
           this.router.navigateByUrl('/capacitacion');
         },

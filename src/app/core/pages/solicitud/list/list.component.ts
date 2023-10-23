@@ -25,33 +25,6 @@ export class ListSolicitudSusComponent {
     this.getData();
   }
 
-  login() {
-    const token = localStorage.getItem('token');
-    const payload = {
-      email: this.loginForm.value.email,
-      contrasenia: this.loginForm.value.password,
-      nombre: this.loginForm.value.nombre,
-      apellido: this.loginForm.value.apellido,
-    };
-
-    this.http
-      .get<any>(hostApi + 'solicitud-capacitacion')
-      .subscribe(
-        (res) => {
-          if (!res.token) {
-            alert('No se registro el usuario');
-            return;
-          }
-          localStorage.setItem('token', res.token);
-          alert('Registro exitos');
-          this.router.navigateByUrl('/login');
-        },
-        (err) => {
-          alert('Error al conectar al servidor');
-        }
-      );
-  }
-
   getData() {
     const data = this.getRandomJoke();
   }
@@ -74,6 +47,20 @@ export class ListSolicitudSusComponent {
       },
       (err) => {
         this.loading = false;
+      }
+    );
+  }
+
+  delete(event: any, id: string) {
+    const baseurl = hostGets + 'solicitud-capacitacion/' + id;
+    const data = this.http.delete<any>(baseurl).subscribe(
+      (res) => {
+        this.dataRequest = res;
+        this.getData();
+        alert('Registro eliminado');
+      },
+      (err) => {
+        alert(err.error || 'Error al intentar conectar con el servidor');
       }
     );
   }

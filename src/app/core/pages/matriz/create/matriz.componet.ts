@@ -40,7 +40,6 @@ export class CrearMatrizComponet {
       })
       .subscribe(
         (res) => {
-          localStorage.setItem('token', res.token);
           alert('Registro exito');
           this.router.navigateByUrl('/matriz');
         },

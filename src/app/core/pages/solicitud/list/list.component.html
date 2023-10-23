@@ -26,10 +26,10 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="code" style="width: 20%">
+        <th pSortableColumn="code" style="width: 19%">
           Estado <p-sortIcon field="code"></p-sortIcon>
         </th>
-        <th pSortableColumn="name" style="width: 20%">
+        <th pSortableColumn="name" style="width: 10%">
           fecha Solicitud <p-sortIcon field="name"></p-sortIcon>
         </th>
         <th pSortableColumn="category" style="width: 20%">
@@ -41,6 +41,9 @@
         <th pSortableColumn="price" style="width: 20%">
           usuario <p-sortIcon field="price"></p-sortIcon>
         </th>
+        <th pSortableColumn="acciones" style="width: 20%">
+          Acciones <p-sortIcon field="price"></p-sortIcon>
+        </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
@@ -50,6 +53,12 @@
         <td>{{ customer.nombreEmpresa }}</td>
         <td>{{ customer.reciboPago }}</td>
         <td>{{ customer.usuario.nombre }} - {{ customer.usuario.apellido }}</td>
+        <td>
+          <span>
+            <p-button icon="pi pi-pencil" class="px-2" severity="primary"></p-button>
+            <p-button icon="pi pi-trash" severity="danger"></p-button
+          ></span>
+        </td>
       </tr>
     </ng-template>
   </p-table>

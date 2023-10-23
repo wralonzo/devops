@@ -46,4 +46,17 @@ export class ListToolComponent {
       }
     );
   }
+  delete(event: any, id: string) {
+    const baseurl = hostGets + 'herramienta/' + id;
+    const data = this.http.delete<any>(baseurl).subscribe(
+      (res) => {
+        this.dataRequest = res;
+        this.getData();
+        alert('Registro eliminado');
+      },
+      (err) => {
+        alert(err.error || 'Error al intentar conectar con el servidor');
+      }
+    );
+  }
 }

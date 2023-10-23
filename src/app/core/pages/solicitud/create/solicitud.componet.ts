@@ -46,7 +46,6 @@ export class CrearSolicitudCapacitacionComponet {
             alert('No se registro el usuario');
             return;
           }
-          localStorage.setItem('token', res.token);
           alert('Registro exitos');
           this.router.navigateByUrl('/solicitud');
         },
