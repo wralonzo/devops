@@ -59,12 +59,15 @@ export class ListRequesComponent {
     const baseurl = hostGets + 'usuario/' + id;
     const data = this.http.delete<any>(baseurl).subscribe(
       (res) => {
+        debugger;
         this.dataRequest = res;
         this.getData();
         alert('Usuario eliminado');
       },
       (err) => {
-        alert(err.error || 'Error al intentar conectar con el servidor');
+        alert(
+          err.error.text || err.error || 'Error al intentar conectar con el servidor'
+        );
       }
     );
   }
