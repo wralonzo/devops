@@ -18,7 +18,6 @@ export class UnauthenticatedInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: any) => {
-        debugger
         if (error.status === 0) {
           alert('Sesion vencida');
           localStorage.clear();
