@@ -45,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'user/register',
-    component: CrearSolicitudCapacitacionComponet,
+    component: CrearSolicitudComponet,
     canActivate: [AuthGuard],
   },
   {
