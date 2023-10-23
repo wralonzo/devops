@@ -11,6 +11,7 @@ import { hostApi, hostGets } from 'src/app/core/constants/host-api';
 })
 export class CrearSolicitudComponet {
   public loginForm!: FormGroup;
+  public role: string = 'CLIENTE';
 
   constructor(
     private formbuilder: FormBuilder,
@@ -38,21 +39,15 @@ export class CrearSolicitudComponet {
     };
 
     this.http
-      .post<any>(hostGets + 'usuario', payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post<any>(hostGets + 'usuario', payload)
       .subscribe(
         (res) => {
-          if (!res.token) {
-            alert('No se registro el usuario');
-            return;
-          }
+          debugger
           alert('Registro exitos');
           this.router.navigateByUrl('/user');
         },
         (err) => {
+          debugger
           alert( err.error ?? 'Error al conectar al servidor');
         }
       );
